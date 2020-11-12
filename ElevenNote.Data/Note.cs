@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElevenNote.Data
 {
@@ -15,8 +16,12 @@ namespace ElevenNote.Data
         public string Content { get; set; }
         [Required]
         public DateTimeOffset CreateUtc { get; set; }
-    
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        [Required]
+       // public int CategoryId { get; set; }
 
+       // [ForeignKey(nameof(CategoryId))]
+       // public virtual Categories Categories { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

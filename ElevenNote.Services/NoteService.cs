@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace ElevenNote.Services
-{
+{ 
     public class NoteService
     {
         private readonly Guid _userId;

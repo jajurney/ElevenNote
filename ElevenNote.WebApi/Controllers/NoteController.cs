@@ -1,4 +1,5 @@
-﻿using ElevenNote.Models;
+﻿using ElevenNote.Data;
+using ElevenNote.Models;
 using ElevenNote.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,6 +14,7 @@ namespace ElevenNote.WebApi.Controllers
    [Authorize]
     public class NoteController : ApiController
     {
+        
         public IHttpActionResult Delete(int id)
         {
             var service = CreateNoteService();
@@ -53,11 +55,11 @@ namespace ElevenNote.WebApi.Controllers
         public IHttpActionResult Post(NoteCreate note)
         {
             if (!ModelState.IsValid)
-
+          
                 return BadRequest(ModelState);
 
 
-            var service = CreateNoteService();
+           var service = CreateNoteService();
 
             if (!service.CreateNote(note))
 
