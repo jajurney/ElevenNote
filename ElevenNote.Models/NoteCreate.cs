@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ElevenNote.Models
 {
@@ -11,6 +12,6 @@ namespace ElevenNote.Models
         [Required]
         [MaxLength(8000)]
         public string Content { get; set; }
-
+       
     }
 }
