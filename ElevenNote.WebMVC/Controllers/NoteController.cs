@@ -13,7 +13,7 @@ namespace ElevenNote.WebMVC.Controllers
 {
     public class NoteController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
+        //private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Note
         public ActionResult Index()
         {
@@ -45,20 +45,12 @@ namespace ElevenNote.WebMVC.Controllers
             ModelState.AddModelError("", "Note could not be created.");
             return View(model);
         }
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if(id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Note note = _db.Notes.Find(id);
             var svc = CreateNoteService();
-            //var model = svc.GetNoteById(id);
-            if(note == null)
-            {
-                return HttpNotFound();
-            }
-            return View(note);
+            var model = svc.GetNoteById(id);
+
+            return View(model);
         }
         public ActionResult Edit(int id)
         {
@@ -71,6 +63,48 @@ namespace ElevenNote.WebMVC.Controllers
                 Content = detail.Content
             };
             return View(model);
+        }
+        [HttpPost]
+        [ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, NoteEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.NoteId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateNoteService();
+
+            if (service.UpdateNote(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
+        }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateNoteService();
+            var model = svc.GetNoteById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateNoteService();
+            service.DeleteNote(id);
+            TempData["SaveResult"] = "Your not was deleted.";
+            return RedirectToAction("Index");
         }
         private NoteService CreateNoteService()
         {
