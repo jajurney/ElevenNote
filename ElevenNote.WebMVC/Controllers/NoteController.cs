@@ -26,6 +26,9 @@ namespace ElevenNote.WebMVC.Controllers
         // Note/Create/{id}
         public ActionResult Create()
         {
+            ViewBag.Title = "Create";
+            ViewBag.RandomMessage = "Hello!";
+        
             return View();
         }
         // POST: Note
@@ -60,7 +63,8 @@ namespace ElevenNote.WebMVC.Controllers
             {
                 NoteId = detail.NoteId,
                 Title = detail.Title,
-                Content = detail.Content
+                Content = detail.Content,
+                IsStarred = detail.IsStarred
             };
             return View(model);
         }

@@ -141,6 +141,9 @@
     <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -151,9 +154,25 @@
   <ItemGroup>
     <Compile Include="Categories.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202012101455184_3.cs" />
-    <Compile Include="Migrations\202012101455184_3.designer.cs">
-      <DependentUpon>202012101455184_3.cs</DependentUpon>
+    <Compile Include="Migrations\202012101627145_4.cs" />
+    <Compile Include="Migrations\202012101627145_4.designer.cs">
+      <DependentUpon>202012101627145_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101827554_5.cs" />
+    <Compile Include="Migrations\202012101827554_5.designer.cs">
+      <DependentUpon>202012101827554_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101906350_6.cs" />
+    <Compile Include="Migrations\202012101906350_6.designer.cs">
+      <DependentUpon>202012101906350_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101909381_7.cs" />
+    <Compile Include="Migrations\202012101909381_7.designer.cs">
+      <DependentUpon>202012101909381_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101950499_8.cs" />
+    <Compile Include="Migrations\202012101950499_8.designer.cs">
+      <DependentUpon>202012101950499_8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
@@ -170,8 +189,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012101455184_3.resx">
-      <DependentUpon>202012101455184_3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012101627145_4.resx">
+      <DependentUpon>202012101627145_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101827554_5.resx">
+      <DependentUpon>202012101827554_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101906350_6.resx">
+      <DependentUpon>202012101906350_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101909381_7.resx">
+      <DependentUpon>202012101909381_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101950499_8.resx">
+      <DependentUpon>202012101950499_8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

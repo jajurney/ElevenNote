@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,5 +23,7 @@ namespace ElevenNote.Data
        // public virtual Categories Categories { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
+        [DefaultValue(false)]
+        public bool IsStarred { get; set; }
     }
 }

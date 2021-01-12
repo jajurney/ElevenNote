@@ -9,5 +9,8 @@ namespace ElevenNote.Models
         public string Title { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreateUtc { get; set; }
+        [UIHint("Starred")]
+        [Display(Name ="Important")]
+        public bool IsStarred { get; set; }
     }
 }

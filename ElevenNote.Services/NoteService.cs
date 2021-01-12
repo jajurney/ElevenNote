@@ -38,7 +38,7 @@ namespace ElevenNote.Services
                 var query = ctx
                     .Notes
                     .Where(e => e.OwnerId == _userId)
-                    .Select(e => new NoteListItem { NoteId = e.NoteId, Title = e.Title, CreateUtc = e.CreateUtc });
+                    .Select(e => new NoteListItem { NoteId = e.NoteId, Title = e.Title, IsStarred = e.IsStarred, CreateUtc = e.CreateUtc });
                 return query.ToArray();
             }
         }
@@ -70,6 +70,7 @@ namespace ElevenNote.Services
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.IsStarred = model.IsStarred;
 
                 return ctx.SaveChanges() == 1;
             }

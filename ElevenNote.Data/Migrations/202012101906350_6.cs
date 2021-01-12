@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _3 : DbMigration
+    public partial class _6 : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Note", "ModifiedUtc", c => c.DateTimeOffset(precision: 7));
+            AlterColumn("dbo.Note", "IsStarred", c => c.Boolean());
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Note", "ModifiedUtc", c => c.DateTimeOffset(nullable: false, precision: 7));
+            AlterColumn("dbo.Note", "IsStarred", c => c.Boolean(nullable: false));
         }
     }
 }
